@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phản hồi tốt - FAQ</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 20px;
+            color: #111;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 580px;
+            margin: auto;
+        }
+
+        .box {
+            border: 1px solid #b8c9df;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            padding: 16px 14px;
+        }
+
+        .title {
+            font-weight: bold;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .arrow {
+            font-size: 18px;
+            margin-right: 8px;
+            transition: transform 0.2s;
+        }
+
+        .content {
+            line-height: 1.6;
+        }
+
+        .content p {
+            margin: 0 0 14px 0;
+        }
+
+        ul {
+            margin-top: 5px;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .question {
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 14px;
+        }
+
+        .answer {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .rotate {
+            transform: rotate(-90deg);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Ví dụ về phản hồi tốt -->
+    <div class="box">
+
+        <div class="title" onclick="toggleContent('feedback', this)">
+            <span class="arrow">⌃</span>
+            Ví dụ về Phản hồi Tốt
+        </div>
+
+        <div class="content" id="feedback">
+
+            <p>
+                Các vấn đề được phát hiện bởi đồng nghiệp của bạn trong đánh giá mã.
+            </p>
+
+            <ul>
+                <li>Tệp css không được liên kết chính xác</li>
+
+                <li>
+                    Bạn đang thiếu dấu chấm phẩy trong một trong các quy tắc của bạn
+                </li>
+
+                <li>
+                    Bạn quên một hoặc hai dấu đóng trong một trong các quy tắc của bạn
+                </li>
+
+                <li>
+                    Bạn có lỗi đánh máy trong bộ chọn
+                </li>
+
+                <li>
+                    Bạn có tên thuộc tính không hợp lệ (thường là do lỗi đánh máy).
+                </li>
+
+                <li>
+                    Bạn có một giá trị thuộc tính không hợp lệ (thường là do lỗi đánh máy).
+                </li>
+            </ul>
+
+            <p>
+                Các vấn đề được phát hiện bởi trình xác thực và được báo cáo cho bạn
+                bởi đồng nghiệp của bạn.
+            </p>
+
+            <ul>
+                <li>
+                    Wave phát hiện rằng bạn có lỗi tương phản màu.
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+
+    <!-- Câu hỏi thường gặp -->
+    <div class="box">
+
+        <div class="title" onclick="toggleContent('faq', this)">
+            <span class="arrow">⌃</span>
+            Câu hỏi thường gặp
+        </div>
+
+        <div class="content" id="faq">
+
+            <div class="question">
+                1. Chúng ta có đánh giá về sự hấp dẫn của một trang web không?
+            </div>
+
+            <div class="answer">
+                Không. Đây là một bài tập ban đầu và chúng tôi chỉ tìm kiếm khả năng
+                kết nối bằng kiểu và viết các quy tắc CSS cơ bản. Miễn là phong cách
+                đáp ứng các yêu cầu trên và vượt qua trình xác thực Wave, hãy ghi nhận
+                đây.
+            </div>
+
+
+            <div class="question">
+                2. Khi chấm điểm ngang hàng, làm thế nào tôi có thể xem mã?
+            </div>
+
+            <div class="answer">
+                Nhấp vào liên kết mà họ cung cấp. Nếu bạn gặp lỗi 404 thì họ sẽ cần
+                gửi một liên kết kết hợp lệ mới. Nếu bạn thấy trang (nhưng không phải
+                mã), bạn có thể nhấp chuột phải vào trang và sau đó chọn
+                Xem Nguồn trang.
+            </div>
+
+
+            <div class="question">
+                3. Các cảnh báo có được phép trong trình xác thực không?
+            </div>
+
+            <div class="answer">
+                Không khấu trừ cho các cảnh báo xác thực, chỉ cho các lỗi.
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    function toggleContent(id, element) {
+        const content = document.getElementById(id);
+        const arrow = element.querySelector(".arrow");
+
+        if (content.classList.contains("hidden")) {
+            content.classList.remove("hidden");
+            arrow.classList.remove("rotate");
+        } else {
+            content.classList.add("hidden");
+            arrow.classList.add("rotate");
+        }
+    }
+</script>
+
+</body>
+</html>
