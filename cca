@@ -1,0 +1,121 @@
+/* Thiết lập chung */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* 3. Liên kết "Chuyển đến nội dung chính" - Chỉ hiển thị khi được tập trung (focus) */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* 4. Kiểu điều hướng (Navigation) hấp dẫn với Flexbox (ít nhất 3 thuộc tính CSS) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* 8. Lớp giả di chuột (hover) */
+.nav-links a:hover {
+    color: #3498db;
+    text-decoration: underline;
+}
+
+/* Phần giới thiệu */
+.intro {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f4f4f4;
+}
+
+.intro h1 {
+    margin-bottom: 1rem;
+}
+
+/* 6. Áp dụng thuộc tính Grid cho phần tử cha (ít nhất 2 cột) */
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 5. Kiểu cho hình ảnh bằng mô hình hộp (đường viền, đệm, bán kính viền) */
+.grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 5px;
+    /* Đệm */
+    background-color: #fff;
+    border: 2px solid #ddd;
+    /* Đường viền */
+    border-radius: 8px;
+    /* Bán kính viền */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* 8. Lớp giả di chuột trên hình ảnh */
+.grid-item img:hover {
+    transform: scale(1.05);
+}
+
+/* 9. Sử dụng bộ chọn nth-child để tạo bán kính viền khác nhau cho các hình ảnh */
+.grid-gallery .grid-item:nth-child(odd) img {
+    border-radius: 20px 0 20px 0;
+}
+
+.grid-gallery .grid-item:nth-child(even) img {
+    border-radius: 0 20px 0 20px;
+}
+
+/* Chân trang */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #2c3e50;
+    color: white;
+    margin-top: 2rem;
+}
