@@ -1,0 +1,115 @@
+/* Thiết lập cơ bản */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Yêu cầu 2: Liên kết "Chuyển đến Nội dung chính" (chỉ hiển thị khi tập trung) */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+header {
+    text-align: center;
+    background-color: #2c3e50;
+    padding: 1rem 0;
+}
+
+/* Yêu cầu 3 & 4: Nhận xét kiểu dáng phần li, nav sử dụng khối nội tuyến (inline-block) và rộng ~80% */
+.navbar {
+    display: inline-block;
+    width: 80%;
+    background-color: #34495e;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    /* Yêu cầu 9: Sử dụng flex-wrap */
+}
+
+.nav-links li {
+    display: inline-block;
+    /* Nhận xét kiểu dáng cho phần li */
+    margin: 5px 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Yêu cầu 5: Sử dụng bộ chọn hậu duệ để định dạng hình ảnh trong điều hướng rộng khoảng 10% */
+.navbar img {
+    width: 10%;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* Phần nội dung chính */
+.intro {
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Yêu cầu 6, 8: Tạo kiểu cho lớp lưới (grid) hai cột (~40%), dùng justify-content, align-items và row-gap */
+.my-grid-class {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    /* Hai cột, mỗi cột xấp xỉ 40% */
+    justify-content: center;
+    /* Căn giữa các cột */
+    align-items: center;
+    row-gap: 20px;
+    /* Khoảng cách hàng */
+    column-gap: 20px;
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Yêu cầu 7: Sử dụng bộ chọn hậu duệ để định dạng hình ảnh trong lớp lưới có chiều rộng 100% 
+   (Không ảnh hưởng đến ảnh trong lớp flex nhờ chọn lọc theo class .my-grid-class) */
+.my-grid-class img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Chân trang */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #2c3e50;
+    color: white;
+    margin-top: 2rem;
+}
