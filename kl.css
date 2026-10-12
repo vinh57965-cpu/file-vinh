@@ -1,0 +1,124 @@
+/* Thiết lập chung và mặc định cho chế độ di động (Mobile First - Lưới 1 cột) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Yêu cầu 4: Chế độ di động sử dụng lưới 1 cột, khoảng cách 10px giữa các hàng và cột */
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+/* Yêu cầu 5: Chế độ máy tính bảng kích hoạt ở 772px */
+@media screen and (min-width: 772px) {
+    .container {
+        /* a. Sử dụng lưới hai cột */
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* b. Đặt bán kính đường viền trên các hình để tạo hình tròn */
+    .card img {
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+    }
+
+    /* c. Đặt con số cuối cùng (phần tử thứ 4) để chiếm cả hai cột */
+    .card:last-child {
+        grid-column: span 2;
+    }
+}
+
+/* Yêu cầu 6: Chế độ màn hình lớn kích hoạt ở 992px */
+@media screen and (min-width: 992px) {
+    .container {
+        /* Đảm bảo không sử dụng chiều rộng tối đa (max-width) */
+        width: 100%;
+    }
+
+    /* Trả con số cuối cùng về 1 cột bình thường nếu cần, hoặc tùy chỉnh */
+    .card:last-child {
+        grid-column: auto;
+    }
+
+    /* a. Đặt mỗi con số thứ ba (phần tử thứ 3) để chiếm cả hai cột */
+    .card:nth-child(3) {
+        grid-column: span 2;
+    }
+
+    /* b. Xóa bán kính đường viền khỏi tất cả các hình */
+    .card img {
+        border-radius: 0;
+        aspect-ratio: auto;
+    }
+}
+
+/* Yêu cầu 7: Truy vấn phương tiện giảm chuyển động ưa thích */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Yêu cầu 8: Truy vấn phương tiện cho chế độ màu tối (Dark Mode) */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+
+    .card {
+        background-color: #1e1e1e;
+        /* c. Thay đổi màu viền của các hình thành màu đen (hoặc viền tối tương phản) */
+        border-color: #000000;
+    }
+
+    .card img {
+        /* a. Thay đổi màu nền của các hình thành màu tối */
+        background-color: #2c2c2c;
+        /* c. Đảm bảo viền ảnh hoặc khung hiển thị rõ ràng */
+        border: 2px solid #000000;
+    }
+
+    .card h2,
+    .card p,
+    header h1,
+    header p {
+        /* b. Thay đổi màu phông chữ thành màu nhạt hơn / vàng để chống lỗi tương phản */
+        color: #ffeb3b;
+    }
+}
