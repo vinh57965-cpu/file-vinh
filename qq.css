@@ -1,0 +1,121 @@
+/* Thiết lập chung và cấu hình mô hình hộp chuẩn */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Bố cục mặc định cho chế độ di động (Mobile First): Lưới 1 cột với khoảng cách 10px */
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+/* 1. Truy vấn phương tiện #1: Kích hoạt từ 772px (Chế độ máy tính bảng) */
+@media screen and (min-width: 772px) {
+    .container {
+        /* Sử dụng lưới hai cột */
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Đặt bán kính đường viền trên hình ảnh để tạo hình tròn */
+    .card img {
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+    }
+
+    /* Đặt phần tử cuối cùng để chiếm cả hai cột */
+    .card:last-child {
+        grid-column: span 2;
+    }
+}
+
+/* 2. Truy vấn phương tiện #2: Kích hoạt từ 992px hoặc 998px (Chế độ màn hình lớn) */
+@media screen and (min-width: 992px) {
+    .container {
+        /* Đảm bảo không giới hạn chiều rộng tối đa */
+        width: 100%;
+    }
+
+    /* Trả phần tử cuối cùng về dạng tự động nếu cần, hoặc tùy chỉnh theo yêu cầu */
+    .card:last-child {
+        grid-column: auto;
+    }
+
+    /* Đặt phần tử thứ ba để chiếm cả hai cột */
+    .card:nth-child(3) {
+        grid-column: span 2;
+    }
+
+    /* Xóa bán kính đường viền khỏi tất cả các hình ảnh */
+    .card img {
+        border-radius: 0;
+        aspect-ratio: auto;
+    }
+}
+
+/* Truy vấn phương tiện cho tùy chọn giảm chuyển động ưa thích */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Truy vấn phương tiện cho chế độ màu tối (Dark Mode) */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+
+    .card {
+        background-color: #1e1e1e;
+        border-color: #000000;
+    }
+
+    .card img {
+        background-color: #2c2c2c;
+        border: 2px solid #000000;
+    }
+
+    .card h2,
+    .card p,
+    header h1,
+    header p {
+        color: #ffeb3b;
+        /* Sử dụng màu vàng/sáng để chống lỗi tương phản màu */
+    }
+}
