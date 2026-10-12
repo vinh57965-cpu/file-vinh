@@ -1,0 +1,79 @@
+/* Thiết lập cơ bản cho trang web */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Định dạng cho phần tử chính hiển thị ảnh và văn bản (id="image") */
+#image {
+    width: 600px;
+    height: 400px;
+    background-color: #0077b6;
+    /* Màu nền ban đầu */
+    background-image: url('');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 4px solid #03045e;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+/* Định dạng vùng chứa các hình ảnh xem trước (thư viện ảnh nhỏ) */
+.preview-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Định dạng các hình ảnh thu nhỏ */
+.preview {
+    width: 120px;
+    height: 90px;
+    object-fit: cover;
+    border: 3px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+/* Hiệu ứng khi di chuột qua các hình thu nhỏ */
+.preview:hover {
+    transform: scale(1.08);
+    border-color: #0077b6;
+}
+
+/* Tùy chỉnh hiển thị trên thiết bị di động (Responsive) */
+@media screen and (max-width: 650px) {
+    #image {
+        width: 100%;
+        height: 250px;
+        font-size: 16px;
+    }
+
+    .preview {
+        width: 90px;
+        height: 70px;
+    }
+}
