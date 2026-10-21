@@ -1,0 +1,74 @@
+/* ===================================================
+   TRUY VẤN PHƯƠNG TIỆN #1 (TABLET VIEW / MÁY TÍNH BẢNG)
+   Kích hoạt tại độ rộng tối thiểu 772px
+   =================================================== */
+@media screen and (min-width: 772px) {
+    /* a. Đổi bố cục sao cho các divs bằng 45% chiều rộng chế độ xem */
+    /* b. Cần căn chỉnh thêm flex-direction/inline-block để xếp 2 divs một hàng */
+    div {
+        width: 45%;
+        display: inline-block; /* Hoặc điều chỉnh bố cục flex tùy theo mã khởi động */
+        vertical-align: top;
+        margin: 1%;
+    }
+
+    /* Hình ảnh không quá 30% chiều cao của chế độ xem (30vh) */
+    img {
+        max-height: 30vh;
+        width: auto; /* Giữ nguyên tỷ lệ hình ảnh */
+    }
+}
+
+
+/* ===================================================
+   TRUY VẤN PHƯƠNG TIỆN #2 (DESKTOP VIEW / MÀN HÌNH LỚN)
+   Kích hoạt tại độ rộng tối thiểu 998px
+   =================================================== */
+@media screen and (min-width: 998px) {
+    /* a. Đổi bố cục sao cho các divs bằng 30% chiều rộng chế độ xem */
+    div {
+        width: 30%;
+    }
+
+    /* b. Không cần thay đổi nào khác đối với img hoặc các thuộc tính khác */
+}
+
+
+/* 1. Mặc định (Chế độ xem điện thoại / Mobile View) */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div {
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* 2. Truy vấn #1: Kích hoạt ở 772px (Tablet / Máy tính bảng) */
+@media screen and (min-width: 772px) {
+    .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    div {
+        width: 45%; /* div bằng 45% chiều rộng chế độ xem */
+    }
+
+    img {
+        max-height: 30vh; /* Hình ảnh không vượt quá 30% chiều cao màn hình */
+    }
+}
+
+/* 3. Truy vấn #2: Kích hoạt ở 998px (Desktop / Màn hình lớn) */
+@media screen and (min-width: 998px) {
+    div {
+        width: 30%; /* div bằng 30% chiều rộng chế độ xem */
+    }
+}
