@@ -1,0 +1,37 @@
+/* ==========================================
+   MÃ KHỞI TẠO NỀN (Tùy chỉnh hỗ trợ căn chỉnh)
+   ========================================== */
+* {
+  box-sizing: border-box; /* Giúp tính toán kích thước bao gồm cả padding & border */
+}
+
+/* ==========================================
+   1. TRUY VẤN PHƯƠNG TIỆN #1: Tablet View
+   Kích hoạt ở màn hình từ 772px trở lên
+   ========================================== */
+@media screen and (min-width: 772px) {
+  /* Điều chỉnh các thẻ div hiển thị dạng lưới/hàng ngang */
+  div {
+    width: 45%;
+    display: inline-block;  /* Đặt các khối div nằm cạnh nhau */
+    vertical-align: top;    /* Căn thẳng hàng phía trên cùng của các div */
+    margin: 1%;             /* Tạo khoảng cách nhẹ giữa các div */
+  }
+
+  /* Giới hạn chiều cao hình ảnh không vượt quá 30% viewport height */
+  img {
+    max-height: 30vh;
+    width: auto;            /* Giữ nguyên tỷ lệ khung hình */
+  }
+}
+
+/* ==========================================
+   2. TRUY VẤN PHƯƠNG TIỆN #2: Large Screen View
+   Kích hoạt ở màn hình từ 998px trở lên
+   ========================================== */
+@media screen and (min-width: 998px) {
+  /* Thay đổi chiều rộng div thành 30% để vừa 3 cột */
+  div {
+    width: 30%;
+  }
+}
